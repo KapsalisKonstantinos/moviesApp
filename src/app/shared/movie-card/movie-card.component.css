@@ -1,0 +1,5 @@
+:host ::ng-deep .p-card-content {
+  min-height: 150px;
+  max-height: 150px;
+  overflow-y: hidden;
+}

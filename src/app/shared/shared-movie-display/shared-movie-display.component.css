@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+#moviesContainer {
+  justify-items: center;
+}
+
+.moviesContainer, .loading {
+  padding: 10px;
+  min-height: 100vh;
+  margin-top: 150px;
+  /* position: fixed; */
+  /* width: 100vw; */
+  background-color: var(--color-blue-50);
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.p-card-title {
+  min-height: 3.7rem;
+}
+
+.favoriteHighlight {
+  background-color: tomato !important;
+  color: white;
+  border-color: tomato !important;
+}
+
+.emptyData {
+  display: flex;
+  flex-direction: column;
+}

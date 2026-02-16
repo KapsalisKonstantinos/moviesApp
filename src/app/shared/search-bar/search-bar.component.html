@@ -1,0 +1,14 @@
+<div class="searchInput">
+  <p-iconfield>
+    <p-inputicon styleClass="pi pi-search"/>
+    <input #searchInput
+      type="text"
+      pInputText
+      id="searchInput"
+      [value]="store.filter().query"
+      [placeholder]="store.filter().query ? store.filter().query : 'Search Character'"
+      (input)="search(searchInput.value)"
+    />
+  </p-iconfield>
+</div>
+

@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.header {
+  /* background-color: var(--p-emerald-800); */
+  background-color: var(--color-blue-300);
+  color: black;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  /* z-index: 1000; */
+}

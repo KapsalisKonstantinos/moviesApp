@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.menubar {
+  background-color: aliceblue;
+  padding: 3px;
+}
+
+.p-menubar-item-link-active {
+  border-bottom-style: solid !important;
+  border-bottom: cadetblue !important;
+}

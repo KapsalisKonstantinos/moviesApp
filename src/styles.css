@@ -1,0 +1,38 @@
+
+@import "primeicons/primeicons.css";
+
+/* Tailwind v4 */
+@import "tailwindcss";
+
+
+h1 {
+  font-size: 30px;
+  align-self: center;
+  padding: 10px;
+}
+
+.p-menubar-item-icon {
+  color: #8ec5ff !important;
+}
+
+.pageTitle {
+  width: fit-content;
+  position: fixed;
+  z-index: 1001;
+  left: 40px;
+  top: 110px;
+  font-size: 24px;
+  text-decoration: overline;
+}
+
+.searchInput {
+  width: fit-content;
+  position: fixed;
+  z-index: 1001;
+  right: 20px;
+  top: 105px;
+  width: 250px;
+  height: 36px;
+}
+
+

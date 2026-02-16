@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.moviesContainer, .loading {
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.p-card-title {
+  min-height: 3.7rem;
+}
+
+/* .p-card {
+
+} */

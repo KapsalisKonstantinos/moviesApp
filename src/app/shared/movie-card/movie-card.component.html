@@ -1,0 +1,27 @@
+@if(movie) {
+  <p-card [style]="{ width: '15rem', overflow: 'hidden' }">
+  <ng-template #header>
+      <img alt="Card" class="w-full" loading="lazy" src="{{movie.backdrop_path}}" (error)="onImgError($event)"/>
+  </ng-template>
+  <ng-template #title> {{movie.original_title}} </ng-template>
+  <ng-template #subtitle> {{movie.movie_id}} </ng-template>
+  <p>
+      {{movie.overview}}
+  </p>
+  <ng-template #footer>
+    <div class="flex gap-4 mt-1">
+        @if(movie.favorite && viewType==='favorites') {
+            <p-button label="Edit" class="w-full" styleClass="w-full" (onClick)="edit(movie)" />
+            <p-button label="Details" class="w-full" styleClass="w-full" (onClick)="showDetails(movie)" />
+            <p-button icon="pi pi-heart" [rounded]="true" severity="contrast" (onClick)="addToFavorites(movie)"/>
+        } @else {
+          <p-button label="Details" class="w-full" styleClass="w-full" (onClick)="showDetails(movie)" />
+          <p-button icon="pi pi-trash" [rounded]="true" severity="danger" (onClick)="remove(movie)"/>
+          <p-button *ngIf="!movie.favorite" icon="pi pi-heart" [rounded]="true" severity="secondary" (onClick)="addToFavorites(movie)"/>
+          <p-button *ngIf="movie.favorite" icon="pi pi-heart" [rounded]="true" severity="contrast" (onClick)="addToFavorites(movie)"/>
+        }
+    </div>
+  </ng-template>
+</p-card>
+}
+

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.footer {
+  /* background-color: var(--p-emerald-800); */
+  background-color: var(--color-blue-300);
+  color: black;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}

@@ -1,0 +1,102 @@
+@if(movie) {
+  <div class="movie-details-container">
+  <p-card class="movie-card h-dvh" [header]="movie.original_title">
+
+    <ng-template pTemplate="header">
+      <div class="header-image flex lg:flex-row md:flex-col">
+        <img width="405" height="720"
+          [src]="movie.backdrop_path"
+          alt="Backdrop"
+        />
+        <div class="info-grid">
+          <div>
+            <strong>Release Date:</strong> {{ movie.release_date | date: 'mediumDate'}}
+          </div>
+          <div>
+            <strong>Language:</strong> {{ movie.original_language }}
+          </div>
+          <div>
+            <strong>Popularity:</strong> {{ movie.popularity }}
+          </div>
+          <div>
+            <strong>Votes:</strong> {{ movie.vote_count }}
+          </div>
+          <div>
+            <strong>Rating:</strong>
+            <p-tag severity="success" value="{{ movie.vote_average }}"></p-tag>
+          </div>
+          <div>
+            <strong>Adult:</strong>
+            <p-tag
+              [severity]="movie.adult ? 'danger' : 'info'"
+              [value]="movie.adult ? '18+' : 'All'"
+            ></p-tag>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="movie-content">
+      <div class="details">
+        <h2>{{ movie.original_title }}</h2>
+
+        <p class="overview">
+          {{ movie.overview }}
+        </p>
+
+        <p-divider></p-divider>
+
+        <h3>Casts</h3>
+          <p-dataview #dv [value]="movie.casts">
+            <ng-template #list let-items>
+                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                    <div class="col-span-12" *ngFor="let item of items; let first = first" class="col-span-12">
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
+                            [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"
+                        >
+                            <div class="md:w-40 relative">
+                                <img
+                                    class="block xl:block mx-auto rounded-border w-full"
+                                    [src]="item.profile_path"
+                                    [alt]="item.name"
+                                    loading="lazy"
+                                    (error)="onImgError($event)"
+                                />
+                            </div>
+                            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-secondary text-sm">{{ item.original_name }}</span>
+                                        <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ item.name }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 dark:bg-surface-700 p-1" style="border-radius: 30px">
+                                        <div
+                                            class="bg-surface-0 dark:bg-surface-900 flex items-center gap-2 justify-center py-1 px-2"
+                                            style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
+                                        >
+                                            <span class="text-surface-900 dark:text-surface-0 font-medium text-sm">{{
+                                                item.popularity
+                                            }}</span>
+                                            <i class="pi pi-heart-fill text-red-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:items-end gap-8">
+                                  Character:
+                                    <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">{{
+                                        item.character
+                                    }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataview>
+      </div>
+    </div>
+  </p-card>
+</div>
+}
+
