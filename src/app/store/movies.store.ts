@@ -4,6 +4,7 @@ import { MoviesService } from '../services/movies.service';
 import { Cast, Movie } from '../models/model';
 import { MoviesPersistService } from '../services/persist-data.service';
 import { MessageService } from 'primeng/api';
+import { take } from 'rxjs';
 
 type MoviesState = {
   movies: Movie[];
@@ -66,7 +67,7 @@ export const MoviesStore = signalStore(
       loadMovies(quantity: number) {
         patchState(store, {isLoading: true });
 
-        api.getMovies(quantity).subscribe({
+        api.getMovies(quantity).pipe(take(1)).subscribe({
           next: (movies) => {
             movies = movies.map(movie => {
               movie.favorite = false;
